@@ -85,7 +85,7 @@ DATABASES = {
         'USER': 'bjhtmjha',
         'PASSWORD': 'lsN5edKzgUsA-6cU-eGffWLb8BHnd598',
         'HOST': 'baasu.db.elephantsql.com',
-        'PORT': '5432',
+        'PORT': '',
     }
 }
 # Password validation
