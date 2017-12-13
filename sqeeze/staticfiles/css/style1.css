@@ -1,0 +1,30 @@
+h1{
+	display: block;
+	font-size: 2em;
+	-webkit-margin-before :0.67em;
+	-webkit-margin-after:0.67em;
+	-webkit-margin-start:0em;
+	-webkit-margin-end:0em;
+	font-weight: bold;
+}
+html,body{padding:0;margin:0;font-family:'Open Sans',sans-serif;background:#FFFFFF;}
+.form-control:focus{border-color:#1FA67A;box-shadow:0 0 10px #1FA67A;}
+.input-group-addon{color:#ffffff;background:#1FA67A;border-color:#1FA67A;}
+.btn,.btn:focus,.btn:hover,.btn:active{color:#ffffff;height:58px;font-size:20px;background:#1FA67A;border-color:#1FA67A;outline:none;}
+.btn:active:focus,.btn.active:focus{outline:0 none;background:#146c4e;}
+.sp{margin:35px;}
+.footer-modified{background-color:#292c2f;padding:20px;width:100%;text-align:center;box-shadow:0px 500px 0px 500px #292c2f;}
+.company{color:#E8F5E9;font-size:14px;font-weight:500;margin:0;}
+.footer-icons{margin-top:15px;}
+.footer-icons a{display:inline-block;width:35px;height:35px;cursor:pointer;background-color:#33383b;border-radius:2px;font-size:20px;color:#ffffff;text-align:center;line-height:35px;margin-right:3px;margin-bottom:5px;}h1{font-family:'Cookie',cursive;font-size:200px;font-weight:500;text-align:center;padding:0px;margin-bottom:20px;margin-top:20px;}hr{margin:0px;border-width:3.5px;border-style:solid;border-color:#1FA67A;}
+#url,#btn{height:58px;font-size:22px;}
+#disp{font-size:15px;margin:2px;}
+#final{display:none;padding:0px;margin:0px;width:100%;text-align:center;}
+#cpy{font-size:14px;letter-spacing:1px;}@media (max-width: 379px) {
+	.titl{font-size:50px;}}@media (min-width: 380px) and (max-width: 449px) {
+		.titl{font-size:80px;}}@media (min-width: 450px) and (max-width: 624px) {
+			.titl{font-size:100px;}}@media (min-width: 625px) and (max-width: 799px) {
+				.titl{font-size:150px;}.btn{height:40px;}}@media (min-width: 800px){
+					.titl{font-size:190px;}
+					.btn{height:58px;}}
+					a,a:focus,a:hover,a:active{outline:0;border-color:red;text-decoration:none;}
