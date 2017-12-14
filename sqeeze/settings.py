@@ -27,6 +27,9 @@ DEBUG = True
 #DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 ALLOWED_HOSTS = []
 
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 # Application definition
 
@@ -51,7 +54,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ROOT_URLCONF = 'sqeeze.urls'
 
 TEMPLATES = [
@@ -87,7 +90,7 @@ DATABASES = {
         'USER': 'bjhtmjha',
         'PASSWORD': 'lsN5edKzgUsA-6cU-eGffWLb8BHnd598',
         'HOST': 'baasu.db.elephantsql.com',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 # Password validation
