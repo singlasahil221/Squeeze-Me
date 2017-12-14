@@ -17,29 +17,31 @@ def home(request):
 	if request.method == "POST":
 		custom = request.POST.get("Custom")
 		if custom:
-			if Link.objects.filter(short_url = custom).exists():
-				raise Http404('Try another custom URL')
-			else:			
+			def new():
+				if Link.objects.filter(short_url = custom).exists():
+					raise Http404('Try another custom URL')
+				else:			
+					link_db = models.Link()
+					link_db.link = request.POST.get("url")
+					link_db.link = f.clean(link_db.link)
+					link_db.short_url = custom
+					short_url = custom
+					link_db.save()
+		else:
+			def new2():
 				link_db = models.Link()
 				link_db.link = request.POST.get("url")
-				link_db.link = f.clean(link_db.link)
-				link_db.short_url = custom
-				short_url = custom
-				link_db.save()
-		else:
-			link_db = models.Link()
-			link_db.link = request.POST.get("url")
-			temp = f.clean(link_db.link)
-			if Link.objects.filter(link=temp).exists():
-				short_url = Link.objects.get(link=temp).short_url
-				return render(request,"index.html",{"short_url":short_url})
+				temp = f.clean(link_db.link)
+				if Link.objects.filter(link=temp).exists():
+					short_url = Link.objects.get(link=temp).short_url
+					return render(request,"index.html",{"short_url":short_url})
 
-			link_db.link = temp
-			short_url = uuid.uuid4().hex[:6]
-			while(Link.objects.filter(short_url = short_url).exists()):
+				link_db.link = temp
 				short_url = uuid.uuid4().hex[:6]
-			link_db.short_url = short_url
-			link_db.save()
+				while(Link.objects.filter(short_url = short_url).exists()):
+					short_url = uuid.uuid4().hex[:6]
+				link_db.short_url = short_url
+				link_db.save()
 	return render(request,"index.html",{"short_url":short_url})
 """
 def home(request):
@@ -90,7 +92,8 @@ def register(request):
 """
 def link(request, ids):
     try:
-        url = Link.objects.get(short_url = ids)
+	def tt():
+        	url = Link.objects.get(short_url = ids)
     except Link.DoesNotExist:
     	raise Http404("Does Not Exist.")
     else:
