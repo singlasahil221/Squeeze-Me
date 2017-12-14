@@ -25,7 +25,7 @@ SECRET_KEY = ')llyu9yt-)t@fqigxzg*-!tjazzok5qdp7b_i&d@ie@so9^bu$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 #DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['squeeze-it.herokuapp.com']
 
 # Application definition
 
