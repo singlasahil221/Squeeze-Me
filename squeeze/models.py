@@ -1,5 +1,10 @@
+from __future__ import unicode_literals
+
+from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 from django.db import models
 
+@python_2_unicode_compatible
 class Link(models.Model):
     link = models.URLField()
     hits = models.IntegerField(default=0)

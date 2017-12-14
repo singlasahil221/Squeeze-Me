@@ -25,7 +25,6 @@ SECRET_KEY = ')llyu9yt-)t@fqigxzg*-!tjazzok5qdp7b_i&d@ie@so9^bu$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 #DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
-ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -79,10 +78,10 @@ DATABASES = {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bjhtmjha',
-        'USER': 'bjhtmjha',
-        'PASSWORD': 'lsN5edKzgUsA-6cU-eGffWLb8BHnd598',
-        'HOST': 'baasu.db.elephantsql.com',
+        'NAME': 'dbicb97op7kubr',
+        'USER': 'dhioncgaiucytw',
+        'PASSWORD': 'cd6bec4978292723104c7c79ab96ddb6f7df960042d98fd6a0cb87cd302f8c85',
+        'HOST': 'ec2-54-225-88-191.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -121,10 +120,14 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+SITE_URL = 'https://squeeze-it.herokuapp.com/'
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
+# https://docs.djangoproject.cohttps://squeeze-it.herokuapp.com/m/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
 PROJECT_DIR = os.path.dirname(__file__)
