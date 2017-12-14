@@ -25,7 +25,6 @@ SECRET_KEY = ')llyu9yt-)t@fqigxzg*-!tjazzok5qdp7b_i&d@ie@so9^bu$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 #DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
-ALLOWED_HOSTS = ['squeeze-it.herokuapp.com']
 
 # Application definition
 
@@ -83,7 +82,7 @@ DATABASES = {
         'USER': 'bjhtmjha',
         'PASSWORD': 'lsN5edKzgUsA-6cU-eGffWLb8BHnd598',
         'HOST': 'baasu.db.elephantsql.com',
-        'PORT': '5432',
+        'PORT': '',
     }
 }
 
