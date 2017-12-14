@@ -121,10 +121,14 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+SITE_URL = 'https://squeeze-it.herokuapp.com/'
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
+# https://docs.djangoproject.cohttps://squeeze-it.herokuapp.com/m/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
 PROJECT_DIR = os.path.dirname(__file__)
