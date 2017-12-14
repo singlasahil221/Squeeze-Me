@@ -27,10 +27,6 @@ DEBUG = True
 #DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 ALLOWED_HOSTS = []
 
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -75,9 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sqeeze.wsgi.application'
 
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -93,8 +86,12 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-# Password validation
-# https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validator
+
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
