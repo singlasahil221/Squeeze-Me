@@ -35,12 +35,12 @@ def home(request):
 				short_url = Link.objects.get(link=temp).short_url
 				return render(request,"index.html",{"short_url":short_url[0]})
 				
-				link_db.link = temp
+			link_db.link = temp
+			short_url = uuid.uuid4().hex[:6]
+			while(Link.objects.filter(short_url = short_url).exists()):
 				short_url = uuid.uuid4().hex[:6]
-				while(Link.objects.filter(short_url = short_url).exists()):
-					short_url = uuid.uuid4().hex[:6]
-				link_db.short_url = short_url
-				link_db.save()
+			link_db.short_url = short_url
+			link_db.save()
 	return render(request,"index.html",{"short_url":short_url})
 """
 def home(request):
