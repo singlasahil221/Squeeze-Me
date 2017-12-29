@@ -31,8 +31,8 @@ def home(request):
 			link_db.link = request.POST.get("url")
 			temp = f.clean(link_db.link)
 			if Link.objects.filter(link=temp).exists():
-				short_url = Link.objects.filter(link=temp).short_url
-				return render(request,"index.html",{"short_url":short_url})
+				short_url = Link.objects.filter(link=temp)
+				return render(request,"index.html",{"short_url":short_url.short_url[0]})
 				
 			link_db.link = temp
 			short_url = uuid.uuid4().hex[:6]
