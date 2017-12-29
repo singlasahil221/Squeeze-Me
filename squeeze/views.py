@@ -32,7 +32,7 @@ def home(request):
 			temp = f.clean(link_db.link)
 			if Link.objects.filter(link=temp).exists():
 				short_url = Link.objects.filter(link=temp)
-				return render(request,"index.html",{"short_url":short_url.short_url[0]})
+				return render(request,"index.html",{"short_url":short_url[0].short_url})
 				
 			link_db.link = temp
 			short_url = uuid.uuid4().hex[:6]
