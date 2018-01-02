@@ -16,9 +16,10 @@ def home(request):
 	f=forms.URLField()
 	if request.method == "POST":
 		custom = request.POST.get("Custom")
+		custom = custom.lower()
 		if custom:			
 			if Link.objects.filter(short_url = custom).exists():
-				raise Http404('Try another custom URL')
+				raise Http404('Url already exists. Please try with another custom URL')
 			else:			
 				link_db = models.Link()
 				link_db.link = request.POST.get("url")
@@ -36,8 +37,10 @@ def home(request):
 				
 			link_db.link = temp
 			short_url = uuid.uuid4().hex[:6]
+			short_url = short_url.lower()
 			while(Link.objects.filter(short_url = short_url).exists()):
 				short_url = uuid.uuid4().hex[:6]
+				short_url = short_url.lower()
 			link_db.short_url = short_url
 			link_db.save()
 	return render(request,"index.html",{"short_url":short_url})
@@ -89,10 +92,11 @@ def register(request):
 		return render(request,'addMember.html',{})
 """
 def link(request, ids):
+	ids=ids.lower()
     try:
         url = Link.objects.get(short_url = ids)
     except Link.DoesNotExist:
-    	raise Http404("Does Not Exist.")
+    	raise Http404("URL Does Not Exist.")
     else:
         url.hits += 1
         url.save()
