@@ -120,7 +120,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-SITE_URL = 'https://squeeze-it.herokuapp.com/'
+SITE_URL = 'https://squeeze-me.herokuapp.com/'
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
