@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.template import RequestContext
 from django.shortcuts import redirect, get_object_or_404,Http404
 import uuid
+from django import forms
 from .models import Link
 
 def home(request):
