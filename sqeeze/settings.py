@@ -79,7 +79,7 @@ DATABASES = {
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'bjhtmjha',
-        'USER': 'bjhtmjha',
+        'USER': ' 	singla.sahil221@gmail.com ',
         'PASSWORD': 'lsN5edKzgUsA-6cU-eGffWLb8BHnd598',
         'HOST': 'postgres://bjhtmjha:lsN5edKzgUsA-6cU-eGffWLb8BHnd598@baasu.db.elephantsql.com:5432/bjhtmjha',
         'PORT': '5432',
