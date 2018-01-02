@@ -1,10 +1,14 @@
-from squeeze import models
 from django.shortcuts import render
 from django.template import RequestContext
 from django.shortcuts import redirect, get_object_or_404,Http404
+from django.db.models import F
+from django.http import HttpResponse,JsonResponse
 import uuid
+from rest_framework.generics import RetrieveAPIView,ListAPIView,CreateAPIView
 from django import forms
 from .models import Link
+from django.contrib.auth.decorators import login_required
+from .serializers import LinkSerializer
 
 def home(request):
 	short_url = None
