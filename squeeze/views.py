@@ -93,14 +93,14 @@ def register(request):
 """
 def link(request, ids):
 	ids=str(ids).lower()
-    try:
-        url = Link.objects.get(short_url = ids)
-    except Link.DoesNotExist:
-    	raise Http404("URL Does Not Exist.")
-    else:
-        url.hits += 1
-        url.save()
-        return redirect(url.link)
+	try:
+		url = Link.objects.get(short_url = ids)
+	except Link.DoesNotExist:
+		raise Http404("URL Does Not Exist.")
+	else:
+		url.hits += 1
+		url.save()
+		return redirect(url.link)
 
 
 """
