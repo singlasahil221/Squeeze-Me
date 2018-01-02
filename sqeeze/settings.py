@@ -78,10 +78,10 @@ DATABASES = {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd30gtcimge0sk8',
-        'USER': 'onzesanyflscat',
-        'PASSWORD': '5197fb954ffa964d9a77fdf727a610504e839d1a6d956c75718a5bf770bf40a2',
-        'HOST': 'ec2-54-83-12-150.compute-1.amazonaws.com',
+        'NAME': 'bjhtmjha',
+        'USER': 'bjhtmjha',
+        'PASSWORD': 'lsN5edKzgUsA-6cU-eGffWLb8BHnd598',
+        'HOST': 'baasu.db.elephantsql.com',
         'PORT': '5432',
     }
 }
