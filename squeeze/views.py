@@ -20,14 +20,14 @@ def home(request):
 			if Link.objects.filter(short_url = custom).exists():
 				raise Http404('Url already exists. Please try with another custom URL')
 			else:			
-				link_db = models.Link()
+				link_db = Link()
 				link_db.link = request.POST.get("url")
 				link_db.link = f.clean(link_db.link)
 				link_db.short_url = custom
 				short_url = custom
 				link_db.save()
 		else:			
-			link_db = models.Link()
+			link_db = Link()
 			link_db.link = request.POST.get("url")
 			temp = f.clean(link_db.link)
 			if Link.objects.filter(link=temp).exists():
