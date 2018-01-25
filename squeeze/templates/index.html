@@ -34,7 +34,7 @@
 {% if short_url %}
 <div class = "container">
 <div class="btn btn-default btn-lg" id="basic-addon3" style= " background-color: #f2690e; border-color: #f2690e; display:inline; margin-right: 0px; clear:both; padding: 5px;">Url shorted : </div>
-  <input type="text" name="Custom"   id = "link" value = "https://squeeze-me.herokuapp.com/{{short_url}}" placeholder="short_url" style=  "width:400px; padding:10px;">
+  <input type="text" name="Custom"   id = "link" disabled="disabled" value = "https://squeeze-me.herokuapp.com/{{short_url}}" placeholder="short_url" style=  "width:400px; padding:10px;">
 <button class="btn btn-default btn-lg" data-clipboard-target="#link" type="button" onclick="myFunction()" style=" background-color: #f2690e; border-color: #f2690e;">
               Copy
             </button>
