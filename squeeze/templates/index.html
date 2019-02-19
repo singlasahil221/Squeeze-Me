@@ -1,57 +1,82 @@
+{% load static %}
 <!DOCTYPE html>
 <html style = "background-color: #03030f;" >
-{% load static %}
 <head>
   <title>Squeeze-Me</title>
    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Squeeze Me</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel = "stylesheet" href  = "{% static 'css/style.css' %}">
-    <link rel = "stylesheet" href  = "{% static 'css/style1.css' %}">
+   <style type="text/css">
+   	.input-group-text{
+   		background-color: #f2690e;
+   		border-color: #f2690e;
+   		color: #fff;
+   	}
+   	.btn{
+   		color:#fff;
+   	}
+   </style>
 </head>
 <body style = "background-color: #03030f; ">
-  <div class = "container">
-  <header class="header">
-        <h1 class="titl" style = "font-family: Rancho; color:#f2690e;">Squeeze Me</h1>
-        <p class="lead" style = "font-family: Rancho; color:#f2690e;">A modern, minimalist, and lightweight URL shortener</p>
-      </header>
-
-<form action='/' method="POST">
-  {% csrf_token %}
-  <input type="text" name="url" placeholder="url" autocomplete="off" style="width:400px; padding:10px;" onkeyup="nospaces(this)" required ><br>
-  <button class="btn btn-default btn-lg" id = "Custom" type = "button" style="clear:both margin:30px; background-color: #f2690e; border-color: #f2690e;" >Custom URL </button>
-  <div class="input-group input-group-lg" id = "custom1"  style="display:none; clear:both;margin:auto;" >
-  <div class="btn btn-default btn-lg" id="basic-addon3" style= "display:inline; margin-right: 0px; clear:both;  background-color: #f2690e; border-color: #f2690e;">Short-URL</div>
-  <input type="text" name="Custom" autocomplete="off" placeholder="short_url" style=  "width:400px; padding:10px;" onkeyup="nospaces(this)"><br>
+  	<div class = "container col-sm-12 text-center mt-5">
+        <h1 class="display-1" style = "font-family: Rancho; color:#f2690e; font-size: 128px;"><strong>Squeeze Me</strong></h1>
+        <p1 style = "font-family: Rancho; color:#f2690e;font-size: 32px;">A modern, minimalist, and lightweight URL shortener</p1>
+        <div class="row mt-5">
+        	<div class="col-sm-3"></div>
+        <div class="col-sm-6 align-items-center">
+		<form action='/' method="POST">
+      {% csrf_token %}
+		  <div class="input-group mb-3 col-sm-offset-3">
+			    <span class="input-group-text" id="inputGroupFileAddon01">URL:</span>
+			    <input type="text" class="input col-sm-12 form-control" id="inputGroupFile01" placeholder="enter url">
+		  </div>
+		<input class="btn" type="button" id="Custom" value="CUSTOM URL" style="background-color: #f2690e;border-color: #f2690e;">
+		<input class="btn" type="button" value="SUBMIT" style="background-color: #f2690e;border-color: #f2690e;">
+		 <div class="input-group mt-3 mb-3" id="custom1" style="display: none;">
+		    <span class="input-group-text" id="inputGroupFileAddon01">SHORT_URL:</span>
+		    <input type="text" class="input col-lg-12 form-control" id="inputGroupFile01" placeholder="short_url" onkeyup="nospaces(this);">
+		</div>
+		</form>
+     {% if short_url %}
+     <div>
+		<div class="input-group mb-3 mt-3">
+		    <span class="input-group-text" id="inputGroupFileAddon01">SHORTED_URL:</span>
+		    <input type="text" name="Custom"  class="input col-md-12 form-control" id="inputGroupFile02" value = "https://squeeze-me.herokuapp.com/{{short_url}}" placeholder="short_url"">
+		</div>
+		<input class="btn" type="button" value="COPY" onclick="myFunction();" style="background-color: #f2690e;border-color: #f2690e;">
+		</div>
+     {% endif %}                                                                                                                        
+    </div>                                                                                                                           
+	</div>
 </div>
-
-  <button class="btn btn-default btn-lg" type="submit" style = " background-color: #f2690e; border-color: #f2690e;">submit</button>
-</form>
-</div>
-{% if short_url %}
-<div class = "container">
-<div class="btn btn-default btn-lg" id="basic-addon3" style= " background-color: #f2690e; border-color: #f2690e; display:inline; margin-right: 0px; clear:both; padding: 5px;">Url shorted : </div>
-  <input type="text" name="Custom" autocomplete="off"  id = "link" value = "https://squeeze-me.herokuapp.com/{{short_url}}" placeholder="short_url" style=  "width:400px; padding:10px;">
-<button class="btn btn-default btn-lg" data-clipboard-target="#link" type="button" onclick="myFunction()" style=" background-color: #f2690e; border-color: #f2690e;">
-              Copy
-            </button>
-          </div>
-          </div>
-{% endif %}
-<script type="text/javascript">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/nus.js' %}" type="text/javascript"></script>
+    <script type="text/javascript">
 function nospaces(t){
 if(t.value.match(/\s/g)){
 alert('Sorry, you are not allowed to enter any spaces');
 t.value=t.value.replace(/\s/g,'');
 }
 }
+
+function myFunction() {
+  var copyText = document.getElementById("inputGroupFile02");
+  console.log("copy :"+copyText.value);
+  copyText.select();
+  document.execCommand("Copy");
+  alert("Text copied.");
+}
+
+$(document).ready(function(){
+  $('#Custom').on('click',function () {
+    $('#custom1').toggle();
+  });
+});
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
-    <script src="{% static 'js/nus.js' %}" type="text/javascript"></script>
 </body>
 </html>
