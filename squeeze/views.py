@@ -12,13 +12,14 @@ from .serializers import LinkSerializer
 
 def home(request):
 	short_url = None
+	err_message = None
 	f=forms.URLField()
 	if request.method == "POST":
 		custom = request.POST.get("Custom")
 		custom = str(custom).lower()
 		if custom:			
 			if Link.objects.filter(short_url = custom).exists():
-				raise Http404('Url already exists. Please try with another custom URL')
+				err_message = 'Url already exists. Please try with another custom URL'
 			else:			
 				link_db = Link()
 				link_db.link = request.POST.get("url")
@@ -42,14 +43,14 @@ def home(request):
 				short_url = str(short_url).lower()
 			link_db.short_url = short_url
 			link_db.save()
-	return render(request,"index.html",{"short_url":short_url})
+	return render(request,"index.html",{"short_url":short_url,"err_message":err_message})
 
 def link(request, ids):
 	ids=str(ids).lower()
 	try:
 		url = Link.objects.get(short_url = ids)
 	except Link.DoesNotExist:
-		raise Http404("URL Does Not Exist.")
+		return render(request,"index.html",{"short_url":None,"err_message":"URL Does Not Exist."})
 	else:
 		url.hits += 1
 		url.save()
