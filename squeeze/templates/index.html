@@ -40,6 +40,12 @@
 		    <input type="text" name="Custom" class="input col-lg-12 form-control" id="inputGroupFile01" placeholder="short_url" onkeyup="nospaces(this);">
 		</div>
 		</form>
+	{% if err_message %}
+		<div class="alert alert-danger alert-dismissible fade-in">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			{{ err_message }}
+		</div>
+	{% endif %}
      {% if short_url %}
      <div>
 		<div class="input-group mb-3 mt-3">
