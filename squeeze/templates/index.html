@@ -37,14 +37,14 @@
 		<input class="btn" type="submit" value="SUBMIT" style="background-color: #f2690e;border-color: #f2690e;">
 		 <div class="input-group mt-3 mb-3" id="custom1" style="display: none;">
 		    <span class="input-group-text" id="inputGroupFileAddon01">SHORT_URL:</span>
-		    <input type="text" name="custom" class="input col-lg-12 form-control" id="inputGroupFile01" placeholder="short_url" onkeyup="nospaces(this);">
+		    <input type="text" name="Custom" class="input col-lg-12 form-control" id="inputGroupFile01" placeholder="short_url" onkeyup="nospaces(this);">
 		</div>
 		</form>
      {% if short_url %}
      <div>
 		<div class="input-group mb-3 mt-3">
 		    <span class="input-group-text" id="inputGroupFileAddon01">SHORTED_URL:</span>
-		    <input type="url" name="Custom"  class="input col-md-12 form-control" id="inputGroupFile02" value = "https://squeeze-me.herokuapp.com/{{short_url}}" placeholder="short_url"">
+		    <input type="url"  class="input col-md-12 form-control" id="inputGroupFile02" value = "https://squeeze-me.herokuapp.com/{{short_url}}" placeholder="short_url"">
 		</div>
 		<input class="btn" type="button" value="COPY" onclick="myFunction();" style="background-color: #f2690e;border-color: #f2690e;">
 		</div>
